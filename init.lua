@@ -83,13 +83,7 @@ I hope you enjoy your Neovim journey,
 
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
-
--------------------------------------------------------------------------------------------
---- [[ Custom Additions ]]
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
+--
 -------------------------------------------------------------------------------------------
 
 -- Set <space> as the leader key
@@ -121,7 +115,7 @@ vim.opt.showmode = false
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.opt.clipboard = 'unnamedplus'
+-- vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -395,15 +389,6 @@ require('lazy').setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim',
         config = true,
-        opts = {
-          ensure_installed = {
-            "pyright",
-            "ruff",
-            "gopls",
-            "cfn-lint",
-            "jdtls"
-          }
-        }
       }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -558,8 +543,8 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
+        gopls = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -567,7 +552,8 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        ts_ls = {},
+        eslint = {},
         --
 
         jdtls = {
@@ -613,7 +599,7 @@ require('lazy').setup({
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
+            -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
@@ -904,6 +890,11 @@ require('lazy').setup({
     }
     -- See Commands section for default commands if you want to lazy load on them
   },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  }
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -960,5 +951,8 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
 vim.opt.conceallevel = 0
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -------------------------------------------------------------------------------------------
