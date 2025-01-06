@@ -556,10 +556,10 @@ require('lazy').setup({
         eslint = {},
         --
 
-        jdtls = {
-          -- Prevent automatic setup since we're handling it in java.lua
-          autostart = false,
-        },
+        -- jdtls = {
+        --   -- Prevent automatic setup since we're handling it in java.lua
+        --   autostart = false,
+        -- },
 
         lua_ls = {
           -- cmd = {...},
@@ -943,7 +943,7 @@ vim.keymap.set("n", "<leader>8", function() require("harpoon.ui").nav_file(8) en
 
 vim.keymap.set('v', "<leader>y", "\"*y")
 
-vim.keymap.set('n', '<leader><leader>', '<cmd>CopilotChatToggle<cr>')
+-- vim.keymap.set('n', '<leader><leader>', '<cmd>CopilotChatToggle<cr>')
 
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
