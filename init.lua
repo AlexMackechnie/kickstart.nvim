@@ -606,7 +606,7 @@ require('lazy').setup({
         },
       }
 
-      require('custom.java').setup()
+      -- require('custom.java').setup()
     end,
   },
 
