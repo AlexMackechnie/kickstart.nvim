@@ -859,7 +859,7 @@ require('lazy').setup({
   },
   {
     "github/copilot.vim",
-    enabled=true,
+    enabled=false,
     -- config = function()
     --   vim.g.copilot_enabled = false
     --   vim.g.copilot_assumed_map = true
@@ -872,24 +872,24 @@ require('lazy').setup({
     --   end
     -- end
   },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    build = "make tiktoken", -- Only on MacOS or Linux
-    opts = {
-      debug = true, -- Enable debugging
-      -- See Configuration section for rest
-    },
-    cmd={
-      "CopilotChat",
-      "CopilotChatToggle"
-    }
-    -- See Commands section for default commands if you want to lazy load on them
-  },
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   branch = "canary",
+  --   dependencies = {
+  --     { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+  --     { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+  --   },
+  --   build = "make tiktoken", -- Only on MacOS or Linux
+  --   opts = {
+  --     debug = true, -- Enable debugging
+  --     -- See Configuration section for rest
+  --   },
+  --   cmd={
+  --     "CopilotChat",
+  --     "CopilotChatToggle"
+  --   }
+  --   -- See Commands section for default commands if you want to lazy load on them
+  -- },
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
