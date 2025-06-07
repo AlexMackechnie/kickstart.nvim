@@ -390,6 +390,9 @@ require('lazy').setup({
               extra_args = { "--config", vim.fn.getcwd() .. "/.prettierrc" },
             })
 
+            local hostname = vim.loop.os_gethostname()
+            local disable_tools = hostname == "Alexs-MacBook-Pro.local"
+
             null_ls.setup({
                 root_dir = require("null-ls.utils").root_pattern(
                     ".eslintrc",
@@ -403,9 +406,9 @@ require('lazy').setup({
                     ".prettierrc.json"
                 ),
                 sources = {
-                    eslint_d,
-                    eslint_d_fix,
-                    prettier_fmt,
+                    (not disable_tools) and eslint_d or nil,
+                    (not disable_tools) and eslint_d_fix or nil,
+                    (not disable_tools) and prettier_fmt or nil,
                 },
                 on_attach = function(client, bufnr)
                     -- no auto-format or lint on save
