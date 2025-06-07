@@ -31,10 +31,13 @@ function M.setup()
     else
       config_dir = 'config_win'
     end
+    
+    local lombok_jar = home .. '/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.36/5a30490a6e14977d97d9c73c924c1f1b5311ea95/lombok-1.18.36.jar'
 
     local config = {
       cmd = {
         get_java_executable(),
+        '-javaagent:' .. lombok_jar,
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
