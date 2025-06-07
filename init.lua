@@ -363,10 +363,10 @@ require('lazy').setup({
                 },
                 filters = {
                     dotfiles = false,
-                    git_ignored = false,
+                    git_ignored = true,
                     custom = { 'node_modules', '.git' },
                 },
-                git = { enable = false },
+                git = { enable = true, ignore = true },
                 renderer = {
                     group_empty = true,
                 },
@@ -437,6 +437,12 @@ require('lazy').setup({
         'mfussenegger/nvim-jdtls',
         ft = 'java'
     },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    }
 })
 
 -- Window navigation
