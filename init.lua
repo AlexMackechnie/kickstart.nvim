@@ -140,6 +140,8 @@ require('lazy').setup({
                     map('K', vim.lsp.buf.hover, 'Hover Documentation')
                 end,
             })
+
+            require('custom.java').setup()
         end,
     },
     {
@@ -430,7 +432,11 @@ require('lazy').setup({
                 },
             })
         end,
-    }
+    },
+    {
+        'mfussenegger/nvim-jdtls',
+        ft = 'java'
+    },
 })
 
 -- Window navigation
