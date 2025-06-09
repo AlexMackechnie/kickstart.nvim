@@ -477,6 +477,8 @@ vim.keymap.set('n', '<leader>j', '/', { noremap = true })
 vim.cmd([[cnoreabbrev qq wqa]])
 vim.cmd([[cnoreabbrev qqq qa!]])
 
+vim.keymap.set("n", "<leader>n", function() vim.cmd("nohlsearch") end, { silent = true })
+
 -- Linting
 vim.keymap.set('n', '<leader>k', function()
     vim.lsp.buf.code_action({ apply = true })
