@@ -370,6 +370,9 @@ require('lazy').setup({
                 renderer = {
                     group_empty = true,
                 },
+                update_focused_file = {
+                    enable = true
+                }
             }
             vim.api.nvim_create_autocmd("VimEnter", {
                 callback = function()
@@ -442,6 +445,11 @@ require('lazy').setup({
       lazy = false,
       priority = 1000,
       opts = {},
+    },
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
     }
 })
 
@@ -476,8 +484,12 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<leader>j', '/', { noremap = true })
 vim.cmd([[cnoreabbrev qq wqa]])
 vim.cmd([[cnoreabbrev qqq qa!]])
+vim.o.scrolloff = 999
 
 vim.keymap.set("n", "<leader>n", function() vim.cmd("nohlsearch") end, { silent = true })
+
+-- Colours
+vim.cmd("colorscheme cyberdream")
 
 -- Linting
 vim.keymap.set('n', '<leader>k', function()
