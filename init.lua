@@ -450,6 +450,10 @@ require('lazy').setup({
         "scottmckendry/cyberdream.nvim",
         lazy = false,
         priority = 1000,
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        name = 'github-theme'
     }
 })
 
@@ -484,7 +488,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<leader>j', '/', { noremap = true })
 vim.cmd([[cnoreabbrev qq wqa]])
 vim.cmd([[cnoreabbrev qqq qa!]])
-vim.o.scrolloff = 999
+vim.o.scrolloff = 10
 
 vim.keymap.set("n", "<leader>n", function() vim.cmd("nohlsearch") end, { silent = true })
 
